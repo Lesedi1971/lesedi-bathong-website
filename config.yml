@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "_data/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Category Tag", name: "tag", widget: "string", hint: "e.g. Children, Relief, Healing, Youth, Prevention, Rehabilitation" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  - name: "friends"
+    label: "Friends of Lesedi Bathong"
+    folder: "_data/friends"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Type", name: "type", widget: "select", options: ["Individual", "Church", "Business", "Organisation"] }
+      - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    folder: "_data/gallery"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "string" }
+      - { label: "Section", name: "section", widget: "select", options: ["Home", "Projects", "Friends", "General"] }
